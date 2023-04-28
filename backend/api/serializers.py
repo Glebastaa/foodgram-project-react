@@ -1,16 +1,14 @@
-from djoser.serializers import (
-    TokenCreateSerializer,
-    UserCreateSerializer, UserSerializer,
-)
-from drf_base64.fields import Base64ImageField
-from rest_framework.exceptions import NotFound
-from rest_framework import serializers
 from django.db import transaction
-
-from .mixins import RecipeFieldsMixin
+from djoser.serializers import (TokenCreateSerializer, UserCreateSerializer,
+                                UserSerializer)
+from drf_base64.fields import Base64ImageField
 from recipes.models import (FavoriteRecipe, IngredientRecipe, Ingredients,
                             Recipe, ShoppingCart, Tags, User)
+from rest_framework import serializers
+from rest_framework.exceptions import NotFound
 from users.models import Follow
+
+from .mixins import RecipeFieldsMixin
 
 
 class UserRegistrationSerializer(UserCreateSerializer):

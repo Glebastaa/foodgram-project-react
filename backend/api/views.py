@@ -1,9 +1,10 @@
-from backend.settings import BASE_DIR
 from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from djoser.views import UserViewSet
+from recipes.models import (FavoriteRecipe, IngredientRecipe, Ingredients,
+                            Recipe, ShoppingCart, Tags, User)
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
@@ -12,33 +13,20 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
+from users.models import Follow
+
+from backend.settings import BASE_DIR
 
 from .filters import IngredientsFilter, RecipeFilter
 from .mixins import ReadOnlyUserViewSet
 from .pagination import CustomPaginator
 from .permissions import IsOwnerOrReadOnly
-from .serializers import (
-    CreateRecipesSerializer,
-    FavoriteRecipesViewSetSerializer,
-    IngredientsSerializer,
-    RecipesNoAuthorSerializer,
-    RecipesSerializer,
-    TagsSerializer,
-    CustomUserSerializer,
-    DownloadShoppingCartSerializer,
-    SubscribeSerializer,
-    SubscriptionsSerializer,
-)
-from recipes.models import (
-    FavoriteRecipe,
-    IngredientRecipe,
-    Ingredients,
-    Recipe,
-    ShoppingCart,
-    Tags,
-    User,
-)
-from users.models import Follow
+from .serializers import (CreateRecipesSerializer, CustomUserSerializer,
+                          DownloadShoppingCartSerializer,
+                          FavoriteRecipesViewSetSerializer,
+                          IngredientsSerializer, RecipesNoAuthorSerializer,
+                          RecipesSerializer, SubscribeSerializer,
+                          SubscriptionsSerializer, TagsSerializer)
 
 
 class ActivateUser(UserViewSet):

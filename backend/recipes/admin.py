@@ -1,9 +1,7 @@
 from django.contrib import admin
-
 from recipes.models import (FavoriteRecipe, IngredientRecipe, Ingredients,
                             Recipe, ShoppingCart, TagRecipe, Tags, User)
 from users.models import Follow
-
 
 if not hasattr(admin, "display"):
     def display(description):

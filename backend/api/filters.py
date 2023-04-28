@@ -1,7 +1,6 @@
 from django.db.models import Case, Q, When
 from django.db.models.functions import Lower
 from django_filters.rest_framework import FilterSet, filters
-
 from recipes.models import Recipe, Tags
 
 
