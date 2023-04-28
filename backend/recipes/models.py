@@ -12,7 +12,7 @@ class Tags(models.Model):
         'Название',
         unique=True,
         max_length=200
-        )
+    )
     color = models.CharField(
         'HEX-цвет',
         null=True,
@@ -132,7 +132,7 @@ class TagRecipe(models.Model):
         constraints = [models.UniqueConstraint(
             fields=['recipe', 'tag'],
             name='unique_tagrecipe',
-            ),
+        ),
         ]
 
     def __str__(self):

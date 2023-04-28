@@ -2,7 +2,7 @@ from rest_framework import filters, mixins, viewsets
 from rest_framework.permissions import AllowAny
 from rest_framework import serializers
 
-from recipes.models import FavoriteRecipe,  ShoppingCart
+from recipes.models import FavoriteRecipe, ShoppingCart
 
 
 class ReadOnlyUserViewSet(

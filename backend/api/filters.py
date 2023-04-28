@@ -52,8 +52,8 @@ class IngredientsFilter(FilterSet):
                 Q(
                     name__startswith=search_query
                 ) | Q(
-                        name__icontains=search_query
-                    )
+                    name__icontains=search_query
+                )
             ).annotate(
                 lower_name=Lower('name')
             ).order_by(
