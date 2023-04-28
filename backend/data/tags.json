@@ -1,0 +1,6 @@
+[{"name": "Салаты", "color": "#0000FF", "slug": "salads"},
+{"name": "Закуски", "color": "#FF00FF", "slug": "snacks"},
+{"name": "Десерты", "color": "#00FFFF", "slug": "desserts"},
+{"name": "Рыба", "color": "#FF4500", "slug": "fish"},
+{"name": "Мясо", "color": "#8B0000", "slug": "meat"},
+{"name": "Супы", "color": "#008080", "slug": "soups"}]
