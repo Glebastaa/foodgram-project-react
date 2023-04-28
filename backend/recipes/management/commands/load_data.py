@@ -7,7 +7,8 @@ from recipes.models import Ingredients, Tags
 class Command(BaseCommand):
     def handle(self, *args, **options):
         if Ingredients.objects.exists():
-            return print("Ингредиенты уже импортированы")
+            print("Ингредиенты уже импортированы")
+            return None
         print("Загрузка ingredients.json")
         with open(
             "./data/ingredients.json",
@@ -41,4 +42,4 @@ class Command(BaseCommand):
                 for item in data
             ]
             Tags.objects.bulk_create(tags)
-            print("Данные успешно импортированы")
+            return "Данные успешно импортированы"
