@@ -7,3 +7,4 @@ reportlab
 gunicorn==20.0.4
 psycopg2-binary==2.8.6
 drf_base64
+django-colorfield==0.8.0

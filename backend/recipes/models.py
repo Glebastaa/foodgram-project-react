@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
+from colorfield.fields import ColorField
 
 User = get_user_model()
 
@@ -13,7 +14,7 @@ class Tags(models.Model):
         unique=True,
         max_length=200
     )
-    color = models.CharField(
+    color = ColorField(
         'HEX-цвет',
         null=True,
         max_length=7,
@@ -74,7 +75,7 @@ class Recipe(models.Model):
         default=1,
         verbose_name='Время приготовления(мин.)',
         validators=[
-            MinValueValidator(1),
+            MinValueValidator(1, 'Время приготовления должно быть больше 0'),
         ],
     )
     text = models.TextField(
@@ -146,7 +147,7 @@ class IngredientRecipe(models.Model):
         'Количество',
         default=1,
         validators=[
-            MinValueValidator(1),
+            MinValueValidator(1, 'Время приготовления должно быть больше 0'),
         ],
     )
     recipe = models.ForeignKey(
